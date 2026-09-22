@@ -1,6 +1,8 @@
 package com.example.modifierdemo
 
+import androidx.compose.foundation.border
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.text.font.FontWeight
 import android.os.Bundle
@@ -22,17 +24,20 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ModifierDemoTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    DemoScreen(Modifier.padding(innerPadding))
-                }
+                DemoScreen()
             }
         }
     }
 }
 @Composable
-fun DemoScreen(modifier: Modifier = Modifier) {
+fun DemoScreen() {
+    val mymodifier = Modifier
+        .border(width = 2.dp, color = Color.Black)
+        .padding(all = 10.dp)
+
     Text(
         "Hello Compose",
+        modifier = mymodifier,
         fontSize = 40.sp,
         fontWeight = FontWeight.Bold
     )
