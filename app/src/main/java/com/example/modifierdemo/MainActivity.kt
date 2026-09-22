@@ -12,7 +12,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -46,11 +45,13 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DemoScreen(modifier: Modifier = Modifier) {
     val mymodifier = Modifier
+
         .border(width = 2.dp, color = Color.Black)
         .padding(all = 10.dp)
     val secondModifier = Modifier.height(100.dp)
     Column(
-        modifier = modifier.padding(10.dp),
+        modifier = modifier.fillMaxSize() .padding(10.dp ),
+
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
@@ -77,6 +78,7 @@ fun CustomImage(image: Int, modifier: Modifier = Modifier) {
         painter = painterResource(image),
         contentDescription = null,
         modifier = modifier
+
     )
 }
 
